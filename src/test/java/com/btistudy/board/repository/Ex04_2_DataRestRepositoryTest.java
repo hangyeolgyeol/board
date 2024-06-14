@@ -67,7 +67,7 @@ public class Ex04_2_DataRestRepositoryTest {
         // given
 
         // when & then
-        mockMvc.perform(get("/api/articles/1/articleComments"))
+        mockMvc.perform(get("/api/articles/1/articleComment"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.valueOf("\tapplication/hal+json")));
     }
@@ -79,7 +79,7 @@ public class Ex04_2_DataRestRepositoryTest {
         // given
 
         // when & then
-        mockMvc.perform(get("/api/articles/1/articleComments/99"))
+        mockMvc.perform(get("/api/articles/1/articleComment/99"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.valueOf("\tapplication/hal+json")));
     }
