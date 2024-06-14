@@ -83,5 +83,4 @@ public class Ex04_2_DataRestRepositoryTest {
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.valueOf("\tapplication/hal+json")));
     }
-
 }
