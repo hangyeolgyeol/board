@@ -6,6 +6,7 @@ import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
 import java.util.LinkedHashSet;
@@ -27,7 +28,7 @@ import java.util.Set;
 
 /*
     @Entity 등록할때 반드시 필드중에 어떤게 PK 인지 명시해줘야함
-    @Id : 해당 필드가 PK다 라고 선언하는 애너테이션임.
+    @Id : 해당 필드가 PK다 라고 선언하는 어노테이션임.
 
     @Table: 엔티티와 매핑할 테이블을 지정하고, 생략 시 매핑할 엔티티 이름을 테이블 이름으로 사용
         ex) @Index(name="원하는 명칭", columlist = "DB에서 사용할 컬럼명")
@@ -40,6 +41,7 @@ import java.util.Set;
 
 @Getter
 @ToString
+@EntityListeners(AuditingEntityListener.class)
 @Entity
 @Table(indexes = {
         @Index(columnList = "title"),
@@ -86,10 +88,6 @@ public class Ex01_1_Article_엔티티로_등록 {
         그래서 @ToString 끊기 위해서 @ToString.Exclude 를 사용함
     */
     private final Set<Ex01_2_ArticleComment_엔티티로_등록> articleComment = new LinkedHashSet<>();
-
-
-
-
 
     /*
         jpa auditing: JPA 에서 자동으로 셋팅하게 해줄때 사용하는 설정
