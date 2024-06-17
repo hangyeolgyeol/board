@@ -40,7 +40,8 @@ public class Article extends Ex02_3_AuditingFields {
     @ToString.Exclude
     private final Set<ArticleComment> articleComment = new LinkedHashSet<>();
 
-    protected Article() {  }
+    protected Article() {
+    }
 
     private Article(String title, String content, String hashtag) {
         this.title = title;
